@@ -4,15 +4,29 @@ public class QuadNode {
 	private QuadNode up, down, left, right;
 	private int data;
 	private boolean isInfinity; //determines if this node is a positive or negative infinity node (edge node)
+	private boolean isLocked; //determines whether the node is in use and shouldn't be accessed by other threads
 	
 	QuadNode(int _data, boolean infNode) {
 		data = _data;
 		isInfinity = infNode;
 		up = down = left = right = null;
+		isLocked = false;
 	}
 	
 	public boolean isInfinity() {
 		return isInfinity;
+	}
+	
+	public boolean isLocked() {
+		return isLocked();
+	}
+	
+	public void setLock() {
+		isLocked = true;
+	}
+	
+	public void unLock() {
+		isLocked = false;
 	}
 	
 	public void setData(int _data) {

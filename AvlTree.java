@@ -32,6 +32,7 @@ public class AvlTree {
 			curr.getRight().setParent(curr);
 		} 
 		
+		getHead().setLock(); //obtain the lock of the tree when rebalancing
 		if (getBalanceFactor(curr) >= 2) {
 			if (DEBUG)
 				System.out.println("right BF imbalanced");
@@ -52,6 +53,8 @@ public class AvlTree {
 			}
 		}
 		curr.setHeight(getMax(curr.getLeft(), curr.getRight()) + 1); //update height of node as it traverses tree
+		getHead().unLock(); //Free up the lock so other threads can use the tree
+		
 		return curr; //The newly added node
 	}
 	

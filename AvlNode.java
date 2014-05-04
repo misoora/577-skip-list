@@ -6,6 +6,7 @@ public class AvlNode {
 	int height; //height of current node defined by max(left,right) + 1
 	int balanceFactor; //height(right subtree) - height(left subtree)
 	int value;
+	boolean isLocked;
 	
 	public AvlNode(int value) {
 		left = null;
@@ -14,6 +15,19 @@ public class AvlNode {
 		height = 0;
 		balanceFactor = 0;
 		this.value = value;
+		isLocked = false;
+	}
+	
+	public boolean isLocked() {
+		return isLocked;
+	}
+	
+	public void setLock() {
+		isLocked = true;
+	}
+	
+	public void unLock() {
+		isLocked = false;
 	}
 	
 	public void setLeft(AvlNode left) {

@@ -81,6 +81,8 @@ public class SkipList {
 	 * */
 	private QuadNode recursivelyAddNodes(QuadNode curr, QuadNode currNewNode, int level, int numHeads, int val) {
 		QuadNode newNode = new QuadNode(val, false);
+		curr.setLock();
+		curr.getRight().setLock();
 		if (level == 0) { //first node to be added
 			newNode.setLeft(curr);
 			newNode.setRight(curr.getRight());
@@ -116,6 +118,9 @@ public class SkipList {
 			QuadNode nodeAbove = recursivelyAddNodes(curr, newNode, level, numHeads, val);
 			newNode.setUp(nodeAbove);
 		}
+		
+		curr.unLock();
+		curr.getRight().unLock();
 		return newNode;
 	}
 	

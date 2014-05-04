@@ -1,4 +1,7 @@
 import java.util.LinkedList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 
 public class AvlTest {
@@ -10,7 +13,7 @@ public class AvlTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		tree = new AvlTree(10);
-		/*
+		
 		ExecutorService es = Executors.newCachedThreadPool();
         es.execute(t1);
         es.execute(t2);
@@ -23,8 +26,8 @@ public class AvlTest {
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} */
-		//tree.inorderPrint();
+		} 
+		tree.inorderPrint();
 		
 		
 			
